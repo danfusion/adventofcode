@@ -14,3 +14,5 @@ C:\codex\advent_of_code\2020\AdventOfCode2020\AdventOfCode2020\obj\Debug\netcore
 C:\codex\advent_of_code\2020\AdventOfCode2020\AdventOfCode2020\bin\Debug\netcoreapp3.1\input\Day2Input.txt
 C:\codex\advent_of_code\2020\AdventOfCode2020\AdventOfCode2020\bin\Debug\netcoreapp3.1\input\Day3Input.txt
 C:\codex\advent_of_code\2020\AdventOfCode2020\AdventOfCode2020\bin\Debug\netcoreapp3.1\input\Day3TestInput.txt
+C:\codex\advent_of_code\2020\AdventOfCode2020\AdventOfCode2020\bin\Debug\netcoreapp3.1\input\Day4Input.txt
+C:\codex\advent_of_code\2020\AdventOfCode2020\AdventOfCode2020\bin\Debug\netcoreapp3.1\input\Day4TestInput.txt

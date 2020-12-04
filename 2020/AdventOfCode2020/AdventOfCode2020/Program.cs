@@ -42,6 +42,11 @@ namespace AdventOfCode2020
 
                         Console.Clear();
                         break;
+                    case 4:
+                        Day4.runDay();
+
+                        Console.Clear();
+                        break;
                     default:
                         Console.WriteLine("Exiting...");
                         allDone = true;
