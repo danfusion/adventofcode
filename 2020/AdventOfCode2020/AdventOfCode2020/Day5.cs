@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AdventOfCode2020
@@ -11,6 +12,9 @@ namespace AdventOfCode2020
             bool debug = false;
             string line;
             int maxSeatId = 0;
+            //List<int> seatRows = new List<int>();
+            //List<int> seatCols = new List<int>();
+            List<Seat> seats = new List<Seat>();
 
             // Test Input
             // System.IO.StreamReader file = new System.IO.StreamReader(@"input\Day5TestInput.txt");
@@ -22,24 +26,51 @@ namespace AdventOfCode2020
             {
                 Seat thisSeat = new Seat();
                 thisSeat.parseInstructions(line, debug);
-                if(thisSeat.SeatId > maxSeatId)
+                //seatRows.Add(thisSeat.seatCoords.seatRow);
+                //seatCols.Add(thisSeat.seatCoords.seatCol);
+                seats.Add(thisSeat);
+                if (thisSeat.SeatId > maxSeatId)
                 {
                     maxSeatId = thisSeat.SeatId;
                 }
             }
 
+            HashSet <(int row, int col)> myRange = new HashSet<(int row, int col)>();
+            for(var i = 0; i < 128; i++)
+            {
+                for(var j = 0; j < 8; i++)
+                {
+                    myRange.Add(new Tuple<int, int>(i, j));
+                }
+            }
+            var excludedSeats = seats.Where(x => !myRange.Equals(x.seatCoords));
+            
+            //List<int> missingRows = myRange.Except(seatRows).ToList();
+
+            //Console.WriteLine(string.Join(",", missingRows));
             Console.WriteLine("Max Seat id: {0}", maxSeatId);
 
             // pause at the end
             System.Console.ReadLine();
+
         }
     }
 
     class Seat
     {
-        public ( int seatRow, int seatCol) seatCoords = (0, 0);
+        public (int seatRow, int seatCol) seatCoords = (0, 0);
 
         public int SeatId => seatCoords.seatRow * 8 + seatCoords.seatCol;
+        
+        public Seat()
+        {
+            // do nothing
+        }
+        public Seat(int row, int col)
+        {
+            this.seatCoords.seatRow = row;
+            this.seatCoords.seatCol = col;
+        }
 
         public void parseInstructions(string instructions, bool debug)
         {
